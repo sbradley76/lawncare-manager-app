@@ -454,6 +454,256 @@ button:disabled { opacity: 0.65; cursor: not-allowed; transform: none !important
   .image-grid { grid-template-columns: 1fr; }
 }
 
+/* Team, route assignment, calendar, and crew clock styles */
+.route-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 1rem;
+  align-items: start;
+}
+
+.route-list-column,
+.crew-route-list,
+.team-grid,
+.job-mini-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.route-card-large,
+.team-card,
+.calendar-day,
+.clock-hero,
+.route-side-panel {
+  background: rgba(255, 253, 246, 0.92);
+  border: 1px solid rgba(6, 78, 59, 0.12);
+  box-shadow: var(--shadow);
+  border-radius: 28px;
+  padding: clamp(1rem, 2vw, 1.35rem);
+}
+
+.route-card-header,
+.team-card-top,
+.subheading-row,
+.clock-hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.route-card-header h2,
+.team-card-top h2,
+.subheading-row h3 {
+  margin-bottom: 0.25rem;
+}
+
+.route-builder,
+.team-form {
+  margin-bottom: 1rem;
+}
+
+.soft {
+  background: rgba(240, 253, 244, 0.58);
+  border-style: dashed;
+}
+
+.chip-list,
+.stop-list {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(6, 78, 59, 0.13);
+  background: #fff;
+  color: var(--green-900);
+  border-radius: 999px;
+  padding: 0.45rem 0.7rem;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.chip.removable button {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: var(--danger-bg);
+  color: var(--danger);
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.inline-control {
+  margin-top: 0.8rem;
+}
+
+.stop-card,
+.job-mini-card,
+.calendar-card {
+  border: 1px solid rgba(6, 78, 59, 0.12);
+  border-radius: 20px;
+  background: #fff;
+  padding: 0.85rem;
+}
+
+.stop-card {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.stop-card p,
+.job-mini-card p,
+.calendar-card p {
+  margin-bottom: 0.35rem;
+  color: var(--muted);
+}
+
+.stop-order {
+  text-align: center;
+  padding: 0.7rem 0.3rem;
+  border-radius: 14px;
+  font-weight: 900;
+}
+
+.stop-number {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: var(--green-900);
+  color: #fff;
+  font-weight: 950;
+}
+
+.route-side-panel {
+  position: sticky;
+  top: 92px;
+}
+
+.team-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.team-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.team-card-top p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.clock-pill {
+  flex: 0 0 auto;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--muted);
+  padding: 0.45rem 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.clock-pill.in {
+  background: var(--success-bg);
+  color: var(--success);
+  border-color: rgba(4, 120, 87, 0.18);
+}
+
+.compact-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.team-edit-form {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.clock-row {
+  border-bottom: 1px solid rgba(6, 78, 59, 0.08);
+  padding-bottom: 0.5rem;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.calendar-column {
+  display: grid;
+  align-content: start;
+  gap: 0.7rem;
+}
+
+.clock-hero {
+  margin-bottom: 1rem;
+  background:
+    radial-gradient(circle at top right, rgba(132, 204, 22, 0.22), transparent 14rem),
+    rgba(255, 253, 246, 0.94);
+}
+
+.clock-hero h2 {
+  margin-bottom: 0.35rem;
+}
+
+.crew-stop {
+  grid-template-columns: 48px minmax(0, 1fr);
+}
+
+@media (max-width: 1100px) {
+  .route-layout,
+  .calendar-grid {
+    grid-template-columns: 1fr;
+  }
+  .route-side-panel {
+    position: static;
+  }
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .route-card-header,
+  .team-card-top,
+  .subheading-row,
+  .clock-hero {
+    flex-direction: column;
+  }
+  .stop-card,
+  .crew-stop {
+    grid-template-columns: 1fr;
+  }
+  .compact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .route-card-large,
+  .team-card,
+  .calendar-day,
+  .clock-hero,
+  .route-side-panel {
+    border-radius: 22px;
+    padding: 0.85rem;
+  }
+}
+
 /* Invoice Lite */
 .invoices-grid .detail-panel { align-self: start; }
 .invoice-status {
@@ -530,33 +780,63 @@ button:disabled { opacity: 0.65; cursor: not-allowed; transform: none !important
 .invoice-item span { font-weight: 800; }
 .add-item-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 9rem auto;
+  grid-template-columns: minmax(0, 1fr) 6rem 8rem auto;
   gap: 0.6rem;
   margin-top: 0.8rem;
-  align-items: end;
+  align-items: center;
 }
-.tiny-button {
-  border: 0;
-  border-radius: 999px;
-  padding: 0.4rem 0.65rem;
-  background: var(--danger-bg);
-  color: var(--danger);
-  font-size: 0.75rem;
-  font-weight: 900;
-  cursor: pointer;
+.stacked-actions {
+  display: grid;
+  gap: 0.45rem;
+  align-content: start;
 }
-.wrap { flex-wrap: wrap; }
 
-@media print {
-  .topbar, .lead-list, .stats-grid, .filter-row, .global-error, .global-loading { display: none !important; }
-  body { background: white; }
-  .app-grid, .invoices-grid { display: block; }
-  .detail-panel { width: 100%; border: 0; box-shadow: none; }
+@media (max-width: 640px) {
   .invoice-detail { max-width: 760px; margin: 0 auto; }
-  .action-row button { display: none; }
+  .invoice-item,
+  .add-item-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.quote-history {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.quote-history-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border: 1px solid rgba(15, 23, 42, 0.09);
+  border-radius: 18px;
+  padding: 0.85rem;
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.compact-row {
+  flex-wrap: nowrap;
+}
+
+.quote-preview-box pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 0;
+  font: inherit;
+  color: var(--text);
+  background: rgba(15, 23, 42, 0.04);
+  border-radius: 16px;
+  padding: 1rem;
 }
 
 @media (max-width: 720px) {
-  .add-item-row { grid-template-columns: 1fr; }
-  .invoice-item { grid-template-columns: 1fr; }
+  .quote-history-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .compact-row {
+    flex-wrap: wrap;
+  }
 }
